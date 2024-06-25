@@ -48,9 +48,11 @@ object corazones {
         else if(guerrero.vidas() == 2){
         	
             self.image("assert/cantidadDeVidas2.png")
+            game.say(guerrero, "AUUUCH!")
         }
         else if(guerrero.vidas() == 1){
-        	 self.image("assert/cantidadDeVidas1.png")
+        	self.image("assert/cantidadDeVidas1.png")
+            game.say(guerrero, "Daaale papá, ponete las pilas")
         }
       else if(guerrero.vidas() == 0)
       inicio.gameOver()
@@ -77,7 +79,7 @@ object cofre {
 	var property position = game.at(17, 11)
 	var image = "assert/cofreCerrado.png"
 	
-	var ubicacion = self.position()
+	const ubicacion = self.position()
    
     method ubicacion()= ubicacion
 	method image() = image
@@ -96,8 +98,11 @@ object cofre {
      method chocar(){
      	if(guerrero.bolsa() == 1){
      		self.abrirCofre()
+     		self.vaciarCofre()
      		game.removeTickEvent("movimiento")
      		game.addVisual(fotoWinner)
+     	}else{
+     		game.say(guerrero, "Te olvidaste la llave rey")
      	}
      }
      method chocoPoder(){}

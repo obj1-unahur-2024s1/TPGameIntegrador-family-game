@@ -6,7 +6,7 @@ object inicio{
 	
 	
     method iniciar(){
-    	game.width(26)
+    game.width(26)
     game.height(18)
     // fondo del tablero de juego
     
@@ -49,10 +49,14 @@ object inicio{
     keyboard.down().onPressDo ({ guerrero.moverseAbajo() })
     
     // Atacar al presionar la barra espaciadora
-    keyboard.space().onPressDo ({
-       guerrero.atacar()
+     keyboard.space().onPressDo ({
+        if (guerrero.direccion() != "Subir"){
+            guerrero.atacar()           
+        }else{
+            game.say(guerrero, "No se atacar en esa direccion man!")
+        }
         })
-	}
+    }
 	 method gameOver(){
     	if(guerrero.vidas() == 0)
     	game.clear()
