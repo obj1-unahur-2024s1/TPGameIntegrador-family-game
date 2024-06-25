@@ -9,7 +9,7 @@
 
 ## Capturas
 ![Personaje](./assert/EMovQuieto0.png)
-![Game1](./assert/PRESS ENTER (3).png)
+![Game1](./assert/ImagenDeInicio.png)
 ![Game2](./assert/Gameplay.png)
 
 
