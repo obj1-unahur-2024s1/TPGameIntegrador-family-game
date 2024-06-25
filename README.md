@@ -8,7 +8,8 @@
 - Zamorano Burgoa Daniel
 
 ## Capturas
-![Personaje](./assert/EMovQuieto0.png)
+![Enemigo](./assert/EMovQuieto0.png)
+![Personaje](./assert/GMovQuieto0.png)
 ![Game1](./assert/ImagenDeInicio.png)
 ![Game2](./assert/Gameplay.png)
 
