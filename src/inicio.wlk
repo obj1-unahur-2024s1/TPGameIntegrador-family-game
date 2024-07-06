@@ -65,7 +65,7 @@ object inicio{
     	if(guerrero.vidas() == 0)
     	game.clear()
     	game.addVisual(fotoOver)
-    	keyboard.del().onPressDo ({
+    	keyboard.enter().onPressDo ({
 	 	game.removeVisual(fotoOver)
 	 	reloj.numero(99)
 	 	reloj.image(){"assert/imagenTiempoReloj/imagenReloj99.png"}
