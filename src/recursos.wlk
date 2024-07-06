@@ -2,6 +2,7 @@
 import wollok.game.*
 import personajes.*
 import inicio.*
+import nivel2.*
 
 object mapaDeLJuego {
 const property caminoCorrecto = [
@@ -48,9 +49,11 @@ object corazones {
         else if(guerrero.vidas() == 2){
         	
             self.image("assert/cantidadDeVidas2.png")
+            
         }
         else if(guerrero.vidas() == 1){
         	 self.image("assert/cantidadDeVidas1.png")
+            
         }
       else if(guerrero.vidas() == 0)
       inicio.gameOver()
@@ -77,7 +80,7 @@ object cofre {
 	var property position = game.at(17, 11)
 	var image = "assert/cofreCerrado.png"
 	
-	var ubicacion = self.position()
+	const ubicacion = self.position()
    
     method ubicacion()= ubicacion
 	method image() = image
@@ -93,13 +96,29 @@ object cofre {
     method vaciarCofre() {
       self.image("assert/cofreVacio.png")
     }
+    method cerrarCofre() {
+      self.image("assert/cofreCerrado.png")
+    }
      method chocar(){
-     	if(guerrero.bolsa() == 1){
+     	if(guerrero.bolsa() == 1 and self.image() == "assert/cofreCerrado.png"){
      		self.abrirCofre()
-     		game.removeTickEvent("movimiento")
+     		self.vaciarCofre()
+     		
      		game.addVisual(fotoWinner)
+     		
+	 	game.onTick(2000, "nuevoNivel",
+	 	{
+	 	
+	    nivel2.iniciar()
+	   
+	 })
+     		
      	}
-     }
+    
+     if(self.image() == "assert/cofreCerrado.png"){
+     		game.say(guerrero, "Te olvidaste la llave rey")
+     		}
+     		}
      method chocoPoder(){}
 }
 
@@ -109,7 +128,7 @@ object llave {
 	var property position = game.at(19,8)
 	const property image = "assert/LaLLave.png"
 	method chocoPoder(){}
-  method chocar(){
+    method chocar(){
   	game.removeVisual(self)
   	guerrero.agarrarLlave(1)
   	
@@ -142,11 +161,25 @@ class Bola{
 	   	game.removeTickEvent("bola")
 	   	game.removeVisual(self)
 	   }
-	   
-	   
 	}
 }
-
+object reloj{
+	const property position= game.at(13,16)
+	var property numero = 99
+	const nombre = "imagenReloj"
+	
+	method nombre() = nombre
+	method cuentaRegresiva(){
+		numero = 0.max(numero - 1)
+		if (numero == 0){
+			game.removeTickEvent("cuenta regresiva")
+			inicio.gameOver()
+			}
+		
+	}
+	method image()= "assert/imagenTiempoReloj/"+nombre+numero+".png"
+	
+}
 const posion1 = new Posion()
 const posion2 = new Posion(position = game.at(17,5))
 

@@ -48,10 +48,9 @@ object guerrero inherits Entidad(entidad = "G"){
     const boardWidth = 26 // Ancho del tablero
     const boardHeight = 18 // Alto del tablero 
     
-    var vidas = 3
-    var bolsa = 0
-    
-    
+    var property vidas = 3
+    var property bolsa = 0
+     
     method vidas() = vidas
     method bajarUnaVida() {
         vidas = vidas - 1
@@ -59,7 +58,7 @@ object guerrero inherits Entidad(entidad = "G"){
     method adquirirUnaVida() {
     	vidas =3.min( vidas + 1)
     }
-
+   
     method bolsa() = bolsa
 
     method agarrarLlave(unaCantidad) {
@@ -117,6 +116,9 @@ class Orco inherits Entidad(entidad = "E") {
 		
 		guerrero.bajarUnaVida()
 		corazones.cantidadDeVidas()
+		if(guerrero.vidas() == 2){game.say(guerrero, "AUUUCH!")}
+		if(guerrero.vidas() == 1){game.say(guerrero, "Daaale papá, ponete las pilas")}	
+		
 	}
 	method chocoPoder(){
 		game.removeVisual(self)
@@ -155,3 +157,7 @@ class Orco inherits Entidad(entidad = "E") {
     const orco5 = new Orco( pasos=2,x=10, y=2)
     const orco6 = new Orco(pasos= 3,  x=4, y=11)
     const orco7 = new Orco( x=8, y=11)
+    const orco8 = new Orco( pasos=2,x=21, y=2)
+    const orco9 = new Orco(pasos= 3,  x=4, y=14)
+    const orco10 = new Orco( x=17, y=11)
+    

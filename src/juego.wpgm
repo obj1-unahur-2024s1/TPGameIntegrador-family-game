@@ -18,8 +18,8 @@ program miPrimerWollokGame {
     const audio = game.sound("assert/the-horde-movie-intro-theme.mp3")
 	audio.shouldLoop(true)
 	game.schedule(500, { audio.play()} )
-	keyboard.shift().onPressDo({audio.volume(0) })
-	keyboard.del().onPressDo({audio.volume(0.8) })
+	keyboard.alt().onPressDo({audio.volume(0) })
+	keyboard.control().onPressDo({audio.volume(0.8) })
 	
   // iniciar Juego	
 	 keyboard.enter().onPressDo ({
@@ -27,7 +27,8 @@ program miPrimerWollokGame {
 	    inicio.iniciar()
 	   
 	 })
+	 
    // que arranque el juego!
     game.start()
-   
+    
 }
