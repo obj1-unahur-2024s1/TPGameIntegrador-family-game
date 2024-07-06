@@ -65,7 +65,7 @@ object inicio{
     	if(guerrero.vidas() == 0)
     	game.clear()
     	game.addVisual(fotoOver)
-    	keyboard.enter().onPressDo ({
+    	keyboard.del().onPressDo ({
 	 	game.removeVisual(fotoOver)
 	 	reloj.numero(99)
 	 	reloj.image(){"assert/imagenTiempoReloj/imagenReloj99.png"}
@@ -81,7 +81,7 @@ object inicio{
     }
 }
 object fotoOver{
-	var property image = "assert/gameOver.png"
+	var property image = "assert/Reiniciar_1.png"
 	var property position = game.at(0,0)
 }
 object foto{
